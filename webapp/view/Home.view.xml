@@ -1,6 +1,33 @@
 <mvc:View controllerName="cpapp.login.controller.Home"
     xmlns:mvc="sap.ui.core.mvc"
     xmlns="sap.m">
-    <Page id="page" title="{i18n>title}">
+    <Page id="page" title="{i18n>title}" showHeader="false"  class="loginPage">
+    <content>
+      <VBox
+        class="loginContainer"
+        alignItems="Center"
+        justifyContent="Center">
+        
+        <Panel
+          headerText="User Login"
+          width="300px"
+          class="sapUiResponsiveMargin">
+          
+          <VBox>
+            <Label text="User ID" />
+            <Input id="userId" />
+            
+            <Label text="Password" />
+            <Input id="password" type="Password" />
+            
+            <Button
+              text="Login"
+              press=".onLogin"
+              type="Emphasized"
+              class="sapUiSmallMarginTop" />
+          </VBox>
+        </Panel>
+      </VBox>
+      </content>
     </Page>
 </mvc:View>
