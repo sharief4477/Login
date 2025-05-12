@@ -16,16 +16,18 @@ sap.ui.define([
                 return;
             }
 
-            const oCrossAppNavigator = sap.ushell.Container.getService("CrossApplicationNavigation");
-
-            oCrossAppNavigator.toExternal({
-                target: {
-                    semanticObject: "getStockInfo",    // Replace with your semantic object
-                    action: "display"              // Replace with your action
-                },
-                params: {
-                    "userId": sId
-                }
+            sap.ushell.Container.getServiceAsync("CrossApplicationNavigation").then(function (oCrossAppNavigator) {
+                oCrossAppNavigator.toExternal({
+                    target: {
+                        semanticObject: "getStockInfo",  
+                        action: "Display"
+                    },
+                    params: {
+                        userId: sId 
+                    }
+                });
+            }).catch(function (err) {
+                console.error("Failed to get CrossApplicationNavigation service:", err);
             });
 
         }
